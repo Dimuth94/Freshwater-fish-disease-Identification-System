@@ -1,0 +1,7 @@
+folder_name,disease_id,disease_name,synonyms
+bacterial_red_disease,D001,White Spot Disease (Ich),"ich, white_spot, ichthyophthirius multifiliis"
+saprolegniasis,D002,Saprolegniasis,"fish fungus, cotton wool disease, water mold"
+parasitic_diseases,D003,Parasitic Diseases,"ectoparasites, velvet, protozoan infection"
+bacterial_aeromoniasis,D004,Aeromoniasis,"motile aeromonad septicemia, aeromonas infection"
+bacterial_gill_disease,D005,Bacterial Gill Disease,"gill bacterial infection, columnaris-like"
+white_tail_disease,D006,White Tail Disease,"viral white tail, muscle necrosis (viral)"
