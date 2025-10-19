@@ -6,8 +6,8 @@ from torchvision import models
 from torchmetrics.classification import MulticlassAccuracy, MulticlassF1Score
 from tqdm import tqdm
 from sklearn.metrics import classification_report, confusion_matrix
-from datamod import build_loaders
-from utils import set_seed
+from src.datamod import build_loaders
+from src.utils import set_seed
 
 def make_model(name, num_classes):
     if name == "efficientnet_b0":
