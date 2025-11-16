@@ -1,7 +1,7 @@
 seed: 42
 device: "cuda"   # "cpu" if no GPU
 data:
-  root: "data/dataset"
+  root: "data/augmented_dataset"
   img_size: 224
   batch_size: 32
   num_workers: 4
@@ -10,6 +10,11 @@ train:
   lr: 0.0003
   weight_decay: 0.0001
   patience: 6
-  model_name: "efficientnet_b0"  # or "resnet50"
+  model_name: "efficientnet_b0"  # or "resnet50" #resnet50_v2
 log:
   out_dir: "outputs"
+
+#3 diffrentrt lr 0.0001, 0.0005,0.00001
+#learning rate decay
+#data augmentation at the beginning
+#y5e1tpu

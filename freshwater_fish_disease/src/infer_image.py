@@ -1,14 +1,21 @@
+import argparse
 import torch, cv2
 import numpy as np
 from torchvision import models, transforms
 import torch.nn as nn
 from pathlib import Path
-from gradcam import gradcam_on_image, overlay_cam
+from src.gradcam import gradcam_on_image, overlay_cam
+
+# --- CLI args ---
+parser = argparse.ArgumentParser()
+parser.add_argument("--img", type=str, default=None, help="Path to a test image")
+args = parser.parse_args()
 
 CKPT = Path("outputs/best.pt")
-IMG  = "data/dataset/test/white_spot/sample.jpg"
+IMG  = r"D:\MSC\Research\Freshwater-fish-disease-Identification-System\freshwater_fish_disease\data\dataset\test\bacterial_aeromoniasis\bacterial_diseases_aeromoniasis_008.jpg"
 IMG_SIZE = 224
 
+# --- load model ---
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ckpt = torch.load(CKPT, map_location="cpu")
 class_names = ckpt["classes"]
@@ -26,6 +33,7 @@ tform = transforms.Compose([
     transforms.Normalize((0.485,0.456,0.406),(0.229,0.224,0.225))
 ])
 
+# --- read image safely ---
 img = cv2.imread(IMG)[:, :, ::-1]
 x = tform(img).unsqueeze(0).to(device)
 with torch.no_grad():
