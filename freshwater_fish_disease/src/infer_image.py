@@ -12,7 +12,7 @@ parser.add_argument("--img", type=str, default=None, help="Path to a test image"
 args = parser.parse_args()
 
 CKPT = Path("outputs/best.pt")
-IMG  = r"D:\MSC\Research\Freshwater-fish-disease-Identification-System\freshwater_fish_disease\data\dataset\test\bacterial_aeromoniasis\bacterial_diseases_aeromoniasis_008.jpg"
+#IMG  = r"D:\MSC\Research\Freshwater-fish-disease-Identification-System\freshwater_fish_disease\data\dataset\test\bacterial_aeromoniasis\bacterial_diseases_aeromoniasis_008.jpg"
 IMG_SIZE = 224
 
 # --- load model ---
