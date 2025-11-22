@@ -20,9 +20,19 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 ckpt = torch.load(CKPT, map_location="cpu")
 class_names = ckpt["classes"]
 
-model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.IMAGENET1K_V1)
-in_feat = model.classifier[1].in_features
-model.classifier[1] = nn.Linear(in_feat, len(class_names))
+#effiecinet50 code part
+# model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.IMAGENET1K_V1)
+# in_feat = model.classifier[1].in_features
+# model.classifier[1] = nn.Linear(in_feat, len(class_names))
+# model.load_state_dict(ckpt["model"])
+# model.to(device).eval()
+
+# Build ResNet50 model 
+model = models.resnet50(weights=None)
+# Replace final fully connected layer to match your number of classes
+in_feat = model.fc.in_features
+model.fc = nn.Linear(in_feat, len(class_names))
+# Load checkpoint
 model.load_state_dict(ckpt["model"])
 model.to(device).eval()
 
